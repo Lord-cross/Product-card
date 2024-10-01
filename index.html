@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Product Card</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+            .button {
+  position: relative;
+  padding: 10px 22px;
+  border-radius: 6px;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.button:active {
+  transform: scale(0.96);
+}
+
+.button:before,
+.button:after {
+  position: absolute;
+  content: "";
+  width: 150%;
+  left: 50%;
+  height: 100%;
+  transform: translateX(-50%);
+  z-index: -1000;
+  background-repeat: no-repeat;
+}
+
+.button:hover:before {
+  top: -70%;
+  background-image: radial-gradient(circle, #a3e635 20%, transparent 20%),
+    radial-gradient(circle, transparent 20%, #a3e635 20%, transparent 30%),
+    radial-gradient(circle, #a3e635 20%, transparent 20%),
+    radial-gradient(circle, #a3e635 20%, transparent 20%),
+    radial-gradient(circle, transparent 10%, #a3e635 15%, transparent 20%),
+    radial-gradient(circle, #a3e635 20%, transparent 20%),
+    radial-gradient(circle, #a3e635 20%, transparent 20%),
+    radial-gradient(circle, #a3e635 20%, transparent 20%),
+    radial-gradient(circle, #a3e635 20%, transparent 20%);
+  background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%,
+    10% 10%, 18% 18%;
+  background-position: 50% 120%;
+  animation: greentopBubbles 0.6s ease;
+}
+
+@keyframes greentopBubbles {
+  0% {
+    background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
+      40% 90%, 55% 90%, 70% 90%;
+  }
+
+  50% {
+    background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
+      50% 50%, 65% 20%, 90% 30%;
+  }
+
+  100% {
+    background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
+      50% 40%, 65% 10%, 90% 20%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+}
+
+.button:hover::after {
+  bottom: -70%;
+  background-image: radial-gradient(circle, #a3e635 20%, transparent 20%),
+    radial-gradient(circle, #a3e635 20%, transparent 20%),
+    radial-gradient(circle, transparent 10%, #a3e635 15%, transparent 20%),
+    radial-gradient(circle, #a3e635 20%, transparent 20%),
+    radial-gradient(circle, #a3e635 20%, transparent 20%),
+    radial-gradient(circle, #a3e635 20%, transparent 20%),
+    radial-gradient(circle, #a3e635 20%, transparent 20%);
+  background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%, 18% 18%;
+  background-position: 50% 0%;
+  animation: greenbottomBubbles 0.6s ease;
+}
+
+@keyframes greenbottomBubbles {
+  0% {
+    background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%,
+      70% -10%, 70% 0%;
+  }
+
+  50% {
+    background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%,
+      105% 0%;
+  }
+
+  100% {
+    background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
+      110% 10%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+}
+        </style>
+    </head>
+    <!-- Background -->
+    <body
+        class="bg-stone-950 h-screen w-full flex justify-center items-center">
+        <!-- Card -->
+        <div
+            class="container text-center w-max p-6 mx-10 relative bg-stone-800 flex flex-col justify-center rounded-lg items-center space-y-7">
+            <!-- Top of card -->
+            <div
+                class="top-card absolute top-1 flex flex-row-reverse p-1 px-3 justify-between items-center w-full">
+                <!-- Fave icon -->
+                <div class="fave-icon duration-150">
+                    <img src="asset/heart-0.png" title="Add to wishlist"
+                        class="cursor-pointer"
+                        id="fave-icon" alt>
+                </div>
+                <!-- Point animate -->
+                <div
+                    style="margin-top: 0px !important;"
+                    class="point-tip flex flex-row justify-center items-center">
+                    <div
+                        class="bg-lime-400 rounded-full h-2 w-2 animate-ping">
+                    </div>
+                    <p class="text-zinc-500 mx-2 text-sm">50+ piont in stock</p>
+                </div>
+            </div>
+            <!-- --- Content Card --- -->
+            <!-- Image -->
+            <img
+                class="object-cover cursor-pointer transform hover:-rotate-6 hover:scale-105 duration-300 h-60 w-60"
+                src="asset/headphone.png" alt>
+            <!-- Content -->
+            <div class="content flex flex-col justify-center space-y-7">
+                <h2 class="text-white leading-7 font-bold text-xl">Razer Kraken
+                    Edt
+                    Gaming
+                    Headset
+                    Quartz </h2>
+                <div class="price flex flex-row space-x-3 justify-center">
+                    <h3 class="font-extrabold text-5xl text-lime-400">$599</h3>
+                    <h4
+                        class="text-lime-400 text-lg font-bold line-through">$799</h4>
+                </div>
+                <!-- Buy button -->
+                <button
+                    class="button overflow-auto w-full bg-white p-4 font-bold rounded-lg hover:bg-lime-400 duration-200">Add
+                    to cart</button>
+            </div>
+        </div>
+
+        <!-- Script Js -->
+        <script>
+            let faveIcon = document.getElementById('fave-icon');
+            let faved = 0;
+            faveIcon.addEventListener('click', () => {
+                faved = faved === 0 ? 1 : 0;
+                console.log(faved);
+                faveIcon.src = `asset/heart-${faved}.png`
+            })
+        </script>
+    </body>
+</html>
